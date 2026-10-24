@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Finvoizer | AI-Powered Accounts Payable Automation</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23315EFB'/%3E%3Crect x='18' y='15' width='8' height='34' rx='4' fill='%23fff'/%3E%3Crect x='18' y='15' width='28' height='8' rx='4' fill='%23fff'/%3E%3Crect x='18' y='28' width='22' height='8' rx='4' fill='%23fff'/%3E%3Ccircle cx='46' cy='32' r='7' fill='%2319B6A4'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<meta name="description" content="Automate accounts payable with Finvoizer. Streamline invoice capture, data extraction, approvals, purchase order matching, and finance workflows.">
+<style>
+:root{--navy:#101828;--blue:#315EFB;--teal:#19B6A4;--bg:#F8FAFC;--card:#fff;--text:#101828;--mute:#667085;--line:#E4E7EC;--soft:#EEF2FF;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--navy:#F2F4F7;--bg:#0B1220;--card:#121A2B;--text:#F2F4F7;--mute:#98A2B3;--line:#243049;--soft:#16213D;color-scheme:dark}}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
+.w{max-width:1160px;margin:0 auto;padding:0 24px}
+h1,h2,h3{color:var(--navy);line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
+h1{font-size:clamp(2.1rem,5vw,3.4rem)}h2{font-size:clamp(1.6rem,3.4vw,2.4rem)}h3{font-size:1.1rem}
+p{margin:0 0 12px;color:var(--mute)}
+section{padding:80px 0}
+.eyebrow{color:var(--blue);font-weight:600;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer;font-size:1rem;font-family:inherit}
+.btn.p{background:var(--blue);border-color:var(--blue);color:#fff}.btn.p:hover{filter:brightness(1.1)}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:1.3rem;text-decoration:none;color:var(--navy);letter-spacing:-.03em}
+.links{display:flex;align-items:center;gap:22px}.links a{text-decoration:none;color:var(--mute);font-size:.95rem}.links a:hover{color:var(--text)}
+.menu{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:8px 12px;color:var(--text);font:inherit;cursor:pointer}
+@media(max-width:900px){.menu{display:block}.links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:flex-start;background:var(--bg);padding:16px 24px 24px;border-bottom:1px solid var(--line)}.links.open{display:flex}}
+.hero{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center;padding-top:64px}
+@media(max-width:960px){.hero{grid-template-columns:1fr}}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 16px}
+.dash{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 50px -20px rgba(16,24,40,.25);overflow:hidden}
+.dash .bar{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line)}.dash .bar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.dash .in{padding:16px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.stat{border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg)}.stat b{display:block;font-size:1.3rem;color:var(--navy)}.stat span{font-size:.75rem;color:var(--mute)}
+table{width:100%;border-collapse:collapse;font-size:.82rem}th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line)}th{color:var(--mute);font-weight:500}td{color:var(--text)}
+.tag{padding:2px 8px;border-radius:99px;font-size:.72rem;font-weight:600;white-space:nowrap}
+.t-a{background:#DCFAE6;color:#067647}.t-p{background:#FEF0C7;color:#93370D}.t-e{background:#FEE4E2;color:#B42318}.t-r{background:#DBE4FF;color:#1D3FBF}
+.act{margin-top:12px;font-size:.78rem;color:var(--mute);border-top:1px dashed var(--line);padding-top:10px}.act div:before{content:"● ";color:var(--teal)}
+.demo{font-size:.72rem;color:var(--mute);margin-top:8px}
+.grid{display:grid;gap:20px}.g4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 1px 2px rgba(16,24,40,.05)}
+.ic{width:40px;height:40px;border-radius:10px;background:var(--soft);display:grid;place-items:center;margin-bottom:14px;color:var(--blue)}
+.ic svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mini{height:6px;border-radius:4px;background:linear-gradient(90deg,var(--blue),var(--teal));margin-top:14px;opacity:.8}
+.steps{counter-reset:s}.step{position:relative}.step:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;margin-bottom:12px}
+.note{border-left:4px solid var(--teal);background:var(--soft);padding:12px 16px;border-radius:8px;font-size:.92rem;color:var(--text);margin-top:24px}
+.chart{display:flex;align-items:flex-end;gap:10px;height:150px;padding:8px 0}.chart div{flex:1;background:linear-gradient(var(--blue),var(--teal));border-radius:6px 6px 0 0}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+input,select,textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text);width:100%}
+.tools input{max-width:260px}.tools select{max-width:180px}
+.cta{background:var(--navy);border-radius:24px;padding:56px 32px;text-align:center}
+.cta h2,.cta p{color:#fff}.cta p{opacity:.8}.cta .btn:not(.p){background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .cta{background:#16213D}}
+form{display:grid;gap:16px;max-width:640px}label{font-weight:600;font-size:.92rem;color:var(--text)}.err{color:#B42318;font-size:.85rem;min-height:1em;display:block}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .err{color:#FDA29B}}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:640px){.row{grid-template-columns:1fr}}
+#status{padding:14px 16px;border-radius:10px;display:none}
+.pg{padding:64px 0}footer{border-top:1px solid var(--line);padding:40px 0;font-size:.9rem;color:var(--mute)}footer .f{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:12px}footer a{text-decoration:none}
+/* Refined editorial theme */
+:root{--bg:#F6F7FA;--line:#DCE0E8;--soft:#EEF1F8;--mute:#556070}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A0F1C;--card:#0F1626;--line:#1F2A44;--soft:#131C33;--mute:#9AA6BC}:root:not([data-theme="light"]) .eyebrow{color:#8FA8FF}}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(1100px 520px at 75% -8%,rgba(49,94,251,.11),transparent 62%),var(--bg);background-attachment:scroll;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:Newsreader,"Iowan Old Style",Georgia,serif;font-weight:500;letter-spacing:-.025em}
+h1{font-size:clamp(2.5rem,5.4vw,4.1rem);line-height:1.04}
+h2{font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1.1;margin-bottom:16px}
+h3{font-size:1rem;font-weight:600;letter-spacing:-.01em}
+section{padding:104px 0}
+.eyebrow{font-size:.72rem;letter-spacing:.16em;color:#1D3FBF;font-weight:600}
+.links a{font-size:.9rem;font-weight:500}
+.logo{font-weight:500;letter-spacing:-.04em;font-size:1.5rem;gap:10px}
+.btn{border-radius:8px;font-weight:500;padding:12px 24px;transition:background .2s,border-color .2s,color .2s}
+.btn.p{background:var(--navy);border-color:var(--navy);color:var(--bg)}
+.btn.p:hover{filter:none;background:var(--blue);border-color:var(--blue);color:#fff}
+.btn:not(.p):hover{border-color:var(--navy)}
+.cta .btn.p{background:#fff;border-color:#fff;color:#101828}
+.cta .btn.p:hover{background:#DBE4FF;border-color:#DBE4FF;color:#101828}
+.card{border-radius:12px;box-shadow:none;padding:28px}
+.card:hover{border-color:var(--blue)}
+@media(prefers-reduced-motion:no-preference){.card{transition:border-color .25s,transform .25s}.card:hover{transform:translateY(-2px)}}
+.ic{background:transparent;border:1px solid var(--line);color:var(--blue)}
+.mini{height:3px;opacity:1}
+.step:before{background:transparent;border:1px solid var(--blue);color:var(--blue);font-family:Newsreader,Georgia,serif;font-size:1.05rem;font-weight:500}
+.dash{border-radius:14px;box-shadow:0 0 0 1px var(--line),0 40px 70px -35px rgba(16,24,40,.4)}
+.dash .bar{background:var(--bg)}
+.stat{background:transparent;border-radius:10px}
+.stat b{font-family:Newsreader,Georgia,serif;font-weight:500;font-size:1.65rem}
+th{font-size:.66rem;text-transform:uppercase;letter-spacing:.09em;font-weight:600}
+td{font-variant-numeric:tabular-nums}
+.tag{border-radius:6px;font-weight:500}
+.note{border-radius:6px;border-left-color:var(--blue)}
+input:focus,select:focus,textarea:focus{border-color:var(--blue)}
+#security{background:#0B1220;border-block:1px solid #1F2A44}
+#security h2,#security h3{color:#F2F4F7}#security p{color:#9AA6BC}#security .eyebrow{color:#8FA8FF}
+#security .card{background:#101828;border-color:#1F2A44}#security .card:hover{border-color:var(--teal)}
+#security .note{background:#131C33;color:#E4E7EC;border-left-color:var(--teal)}
+.cta{background:linear-gradient(135deg,#0B1220 0%,#16224A 100%);border-radius:16px;padding:72px 32px}
+footer{background:var(--card)}
+</style>
+</head>
+<body>
+<header><div class="w"><nav aria-label="Primary">
+<a class="logo" href="#top" aria-label="Finvoizer home"><svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#315EFB"/><rect x="18" y="15" width="8" height="34" rx="4" fill="#fff"/><rect x="18" y="15" width="28" height="8" rx="4" fill="#fff"/><rect x="18" y="28" width="22" height="8" rx="4" fill="#fff"/><circle cx="46" cy="32" r="7" fill="#19B6A4"/></svg>finvoizer</a>
+<button class="menu" id="menu" aria-expanded="false" aria-controls="links">Menu</button>
+<div class="links" id="links"><a href="#p-platform">Platform</a><a href="#p-solutions">Solutions</a><a href="#p-how">How It Works</a><a href="#p-security">Security</a><a href="#p-about">About</a><a href="#contact" class="btn p">Book a Demo</a></div>
+</nav></div></header>
+
+<main id="top">
+<div class="w hero">
+<div>
+<p class="eyebrow">AI-powered AP automation</p>
+<h1>Accounts Payable Automation, Powered by AI.</h1>
+<p style="font-size:1.1rem">Capture invoices, automate approvals, match purchase orders, and streamline finance workflows with one intelligent accounts payable platform.</p>
+<div class="ctas"><a class="btn p" href="#contact">Book a Demo</a><a class="btn" href="#p-platform">Explore the Platform</a></div>
+<p>Built for finance teams that want less manual work and more control.</p>
+</div>
+<div>
+<div class="dash" role="img" aria-label="Illustrative Finvoizer dashboard showing invoice status cards and a recent invoices table">
+<div class="bar"><i></i><i></i><i></i></div>
+<div class="in">
+<div class="stats"><div class="stat"><b>128</b><span>Invoices this month</span></div><div class="stat"><b>14</b><span>Pending approval</span></div><div class="stat"><b>5</b><span>Exceptions</span></div></div>
+<table><thead><tr><th>Vendor</th><th>Invoice</th><th>Amount</th><th>Status</th></tr></thead><tbody>
+<tr><td>Northwind Supply</td><td>INV-2041</td><td>$4,820.00</td><td><span class="tag t-a">Approved</span></td></tr>
+<tr><td>Halcyon Logistics</td><td>INV-8873</td><td>$12,350.50</td><td><span class="tag t-p">Pending</span></td></tr>
+<tr><td>Brightline Office</td><td>INV-1190</td><td>$640.25</td><td><span class="tag t-e">PO mismatch</span></td></tr>
+<tr><td>Alder &amp; Co.</td><td>INV-5517</td><td>$2,975.00</td><td><span class="tag t-r">In review</span></td></tr></tbody></table>
+<div class="act"><div>Invoice INV-2041 routed to Controller</div><div>Exception flagged on INV-1190 for review</div></div>
+<p class="demo">Illustrative demo data. Not actual customer results.</p>
+</div></div></div>
+</div>
+
+<section><div class="w">
+<h2 style="max-width:720px">Spend Less Time Processing Invoices. More Time Moving Business Forward.</h2>
+<div class="grid g4" style="margin-top:32px">
+<div class="card"><h3>Reduce manual data entry</h3><p>Capture invoice details automatically for review instead of rekeying them.</p></div>
+<div class="card"><h3>Standardize approvals</h3><p>Apply consistent, configurable approval workflows across your team.</p></div>
+<div class="card"><h3>Improve payables visibility</h3><p>See what is pending, approved, and flagged in one place.</p></div>
+<div class="card"><h3>Scale without more busywork</h3><p>Handle growing invoice volumes without growing repetitive tasks.</p></div>
+</div></div></section>
+
+<section id="platform" style="background:var(--card);border-block:1px solid var(--line)"><div class="w">
+<p class="eyebrow">Platform</p><h2>Everything accounts payable needs, in one workflow.</h2>
+<div class="grid g3" style="margin-top:32px">
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></div><h3>Intelligent Invoice Capture</h3><p>Extract relevant invoice information from supported documents and reduce manual data entry.</p><div class="mini" style="width:70%"></div></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4zM19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></div><h3>AI-Powered Data Extraction</h3><p>Identify invoice numbers, dates, vendor details, line items, tax amounts, and totals for review.</p><div class="mini" style="width:85%"></div></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 6h4a4 4 0 0 1 4 4v5"/></svg></div><h3>Automated Approval Workflows</h3><p>Route invoices to the appropriate approvers based on configurable business rules.</p><div class="mini" style="width:60%"></div></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></div><h3>Purchase Order Matching</h3><p>Support matching invoices with purchase orders and receiving records, highlighting exceptions for review.</p><div class="mini" style="width:75%"></div></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div><h3>Vendor Management</h3><p>Organize vendor information, invoice histories, and related records in one place.</p><div class="mini" style="width:65%"></div></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div><h3>Accounts Payable Analytics</h3><p>Visibility into invoice volumes, pending approvals, processing stages, upcoming obligations, and exceptions.</p><div class="mini" style="width:90%"></div></div>
+</div></div></section>
+
+<section id="how"><div class="w">
+<p class="eyebrow">How it works</p><h2>From invoice receipt to approved data.</h2>
+<div class="grid g4 steps" style="margin-top:32px">
+<div class="card step"><h3>Capture</h3><p>Upload or receive supplier invoices.</p></div>
+<div class="card step"><h3>Extract</h3><p>Identify invoice data and prepare it for validation.</p></div>
+<div class="card step"><h3>Approve</h3><p>Route invoices through configurable approval workflows.</p></div>
+<div class="card step"><h3>Review and Export</h3><p>Resolve exceptions and prepare approved invoice data for downstream accounting or payment processes.</p></div>
+</div>
+<div class="note"><b>Product status:</b> human review stays in the loop for exceptions. Feature availability (implemented vs. planned), integrations, and payment execution must be confirmed by the Finvoizer team before launch; none are claimed here.</div>
+</div></section>
+
+<section id="solutions" style="background:var(--card);border-block:1px solid var(--line)"><div class="w">
+<p class="eyebrow">Product preview</p><h2>A clear view of every invoice in motion.</h2>
+<div class="dash" style="margin-top:28px"><div class="in">
+<div class="stats" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))"><div class="stat"><b>128</b><span>Total invoices processed</span></div><div class="stat"><b id="cPend">14</b><span>Awaiting approval</span></div><div class="stat"><b id="cExc">5</b><span>Exceptions needing attention</span></div></div>
+<div class="grid g3" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+<div><h3>Invoices by week</h3><div class="chart" role="img" aria-label="Bar chart of illustrative weekly invoice volume"><div style="height:45%"></div><div style="height:62%"></div><div style="height:50%"></div><div style="height:80%"></div><div style="height:70%"></div><div style="height:92%"></div></div></div>
+<div><h3>Recent invoices</h3>
+<div class="tools"><label for="q" class="err" style="color:var(--mute)">Search vendors</label><input id="q" placeholder="Search vendor or invoice" type="search"><label for="f" class="err" style="color:var(--mute)">Status</label><select id="f"><option value="">All statuses</option><option>Approved</option><option>Pending</option><option>Exception</option></select></div>
+<table><thead><tr><th>Vendor</th><th>Amount</th><th>Status</th></tr></thead><tbody id="rows"></tbody></table>
+<p id="none" class="demo" hidden>No invoices match your filters.</p></div></div>
+<p class="demo">Illustrative demo data. Not actual customer results.</p></div></div>
+
+<h2 style="margin-top:64px">Built for finance teams of different shapes.</h2>
+<div class="grid g4" style="margin-top:24px">
+<div class="card"><h3>Small and midsize businesses</h3><p>Replace spreadsheets and inbox hunting with a structured invoice workflow.</p></div>
+<div class="card"><h3>Growing finance teams</h3><p>Keep approvals consistent as volumes and headcount increase.</p></div>
+<div class="card"><h3>Enterprise finance operations</h3><p>Apply configurable rules and visibility across approval chains.</p></div>
+<div class="card"><h3>Shared services &amp; high volume</h3><p>Surface exceptions faster so teams focus on what needs judgment.</p></div>
+</div></div></section>
+
+<section id="security"><div class="w">
+<p class="eyebrow">Security and control</p><h2>Automation With Finance-Grade Control.</h2>
+<div class="grid g4" style="margin-top:24px">
+<div class="card"><h3>Role-based access</h3><p>Limit who can view and act on invoices.</p></div>
+<div class="card"><h3>Approval permissions</h3><p>Define who can approve, by rule.</p></div>
+<div class="card"><h3>Audit trails</h3><p>Track activity on each invoice.</p></div>
+<div class="card"><h3>Document handling</h3><p>Secure handling, retention and access policies.</p></div>
+</div>
+<div class="note"><b>To complete before launch:</b> list only verified controls. No certifications (SOC 2, ISO 27001, GDPR) or encryption standards are claimed here.</div>
+</div></section>
+
+<section id="resources" style="padding-top:0"><div class="w"><div class="cta">
+<h2>Ready to Rethink Accounts Payable?</h2>
+<p>See how Finvoizer can help your team simplify invoice processing and bring greater visibility to finance operations.</p>
+<a class="btn p" href="#contact">Book a Demo</a> <a class="btn" href="#contact">Contact Us</a>
+</div></div></section>
+
+<section id="contact" style="background:var(--card);border-top:1px solid var(--line)"><div class="w">
+<p class="eyebrow">Demo request</p><h2>Book a Demo</h2>
+<p>Tell us about your accounts payable process and we will follow up.</p>
+<form id="form" novalidate>
+<div class="row"><div><label for="name">Full name</label><input id="name" autocomplete="name" required aria-describedby="e-name"><span class="err" id="e-name" role="alert"></span></div>
+<div><label for="email">Work email</label><input id="email" type="email" autocomplete="email" required aria-describedby="e-email"><span class="err" id="e-email" role="alert"></span></div></div>
+<div class="row"><div><label for="company">Company name</label><input id="company" autocomplete="organization" required aria-describedby="e-company"><span class="err" id="e-company" role="alert"></span></div>
+<div><label for="title">Job title</label><input id="title" autocomplete="organization-title"></div></div>
+<div class="row"><div><label for="vol">Approx. monthly invoice volume</label><select id="vol"><option value="">Select</option><option>Under 100</option><option>100–500</option><option>500–2,000</option><option>2,000+</option></select></div>
+<div><label for="proc">Current AP process</label><select id="proc"><option value="">Select</option><option>Manual / email</option><option>Spreadsheets</option><option>ERP only</option><option>Other tool</option></select></div></div>
+<div><label for="msg">Message</label><textarea id="msg" rows="4"></textarea></div>
+<button class="btn p" type="submit" id="go">Request a demo</button>
+<div id="status" role="status"></div>
+</form></div></section>
+</main>
+
+<div id="pg" hidden></div>
+<footer><div class="w"><a class="logo" href="#top" aria-label="Finvoizer home" style="margin-bottom:20px"><svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#315EFB"/><rect x="18" y="15" width="8" height="34" rx="4" fill="#fff"/><rect x="18" y="15" width="28" height="8" rx="4" fill="#fff"/><rect x="18" y="28" width="22" height="8" rx="4" fill="#fff"/><circle cx="46" cy="32" r="7" fill="#19B6A4"/></svg>finvoizer</a><div class="f"><a href="#top">Home</a><a href="#p-platform">Platform</a><a href="#p-solutions">Solutions</a><a href="#p-how">How It Works</a><a href="#p-security">Security</a><a href="#p-about">About</a><a href="#contact">Contact</a></div>
+<div>© 2026 Finvoizer. All rights reserved.</div></div></footer>
+
+<script>
+var ROWS=[["Northwind Supply","INV-2041","$4,820.00","Approved","t-a"],["Halcyon Logistics","INV-8873","$12,350.50","Pending","t-p"],["Brightline Office","INV-1190","$640.25","Exception","t-e"],["Alder & Co.","INV-5517","$2,975.00","Pending","t-p"],["Meridian Freight","INV-3302","$8,110.00","Approved","t-a"]];
+var rows=document.getElementById("rows"),q=document.getElementById("q"),f=document.getElementById("f"),none=document.getElementById("none");
+function render(){var s=q.value.toLowerCase(),st=f.value,n=0;rows.innerHTML="";
+ROWS.forEach(function(r){if((st&&r[3]!==st)||(s&&(r[0]+r[1]).toLowerCase().indexOf(s)<0))return;n++;
+var tr=document.createElement("tr");[r[0],r[2]].forEach(function(t){var td=document.createElement("td");td.textContent=t;tr.appendChild(td)});
+var td=document.createElement("td"),sp=document.createElement("span");sp.className="tag "+r[4];sp.textContent=r[3];td.appendChild(sp);tr.appendChild(td);rows.appendChild(tr)});
+none.hidden=n>0}
+q.oninput=f.onchange=render;render();
+var m=document.getElementById("menu"),l=document.getElementById("links");
+m.onclick=function(){var o=l.classList.toggle("open");m.setAttribute("aria-expanded",o)};
+l.onclick=function(e){if(e.target.tagName==="A"){l.classList.remove("open");m.setAttribute("aria-expanded","false")}};
+var ENDPOINT=""; // Set to your CRM/backend URL before launch
+document.getElementById("form").onsubmit=function(e){e.preventDefault();var ok=true,first=null;
+[["name","Enter your full name."],["email","Enter a valid work email."],["company","Enter your company name."]].forEach(function(p){
+var el=document.getElementById(p[0]),er=document.getElementById("e-"+p[0]),v=el.value.trim(),bad=!v||(p[0]==="email"&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v));
+er.textContent=bad?p[1]:"";el.setAttribute("aria-invalid",bad);if(bad){ok=false;first=first||el}});
+var s=document.getElementById("status");s.style.display="block";
+if(!ok){s.style.background="#FEE4E2";s.style.color="#B42318";s.textContent="Please fix the highlighted fields.";first.focus();return}
+if(!ENDPOINT){s.style.background="#FEF0C7";s.style.color="#93370D";s.textContent="Form validated, but no backend or CRM endpoint is connected yet, so nothing was sent. Integration required before launch.";return}
+s.style.background="var(--soft)";s.style.color="var(--text)";s.textContent="Sending…";
+fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:name.value,email:email.value,company:company.value,title:title.value,volume:vol.value,process:proc.value,message:msg.value})})
+.then(function(r){if(!r.ok)throw 0;s.style.background="#DCFAE6";s.style.color="#067647";s.textContent="Thank you. Your request was received."})
+.catch(function(){s.style.background="#FEE4E2";s.style.color="#B42318";s.textContent="Something went wrong. Please try again."})};
+var P={
+platform:{t:"Platform | Finvoizer AP Automation Software",d:"Explore Finvoizer: invoice capture, data extraction, approval workflows, purchase order matching, exception management, vendor records and analytics.",e:"Platform",h:"One platform for the full accounts payable workflow.",i:"Finvoizer brings invoice intake, review, approval and reporting into one place, so finance teams work from a single, consistent process.",c:[["Invoice capture and document processing","Upload or receive supplier invoices from supported documents and keep them organized in one queue."],["Data extraction and validation","Identify invoice numbers, dates, vendor details, line items, taxes and totals, then present them for review."],["Approval workflow configuration","Set configurable business rules that route each invoice to the appropriate approvers."],["Purchase order matching","Support matching invoices with purchase orders and receiving records, highlighting differences for review."],["Exception management","Surface missing data and mismatches early so people can resolve them before approval."],["Vendor information management","Keep vendor details, invoice histories and related records together."],["Reporting and analytics","Track invoice volumes, pending approvals, processing stages, upcoming obligations and exceptions."]],n:"<b>Workflow:</b> invoice received, data extracted, reviewed, approved, then approved invoice data prepared for downstream accounting or payment processes. Confirm which capabilities are live before launch."},
+solutions:{t:"Solutions | Finvoizer for Finance Teams",d:"See how Finvoizer supports small and midsize businesses, growing finance teams, enterprise finance, shared services and high-volume invoice processing.",e:"Solutions",h:"Accounts payable automation that fits how your team works.",i:"Whatever your size, the goal is the same: less repetitive work and clearer control over invoices.",c:[["Small and midsize businesses","Move from inboxes and spreadsheets to a structured invoice workflow without adding process overhead."],["Growing finance teams","Keep approvals consistent and visible as invoice volumes and team size grow."],["Enterprise finance operations","Apply configurable approval rules and role-based permissions across teams and approval chains."],["Shared services teams","Give processors one queue, clear statuses and a defined path for exceptions."],["High-volume invoice environments","Reduce repetitive entry and highlight the invoices that need human attention."]]},
+how:{t:"How It Works | Automated Invoice Processing with Finvoizer",d:"Follow an invoice from capture and extraction through approval, exception review and export with Finvoizer.",e:"How it works",h:"From supplier invoice to approved invoice data.",i:"Automation handles the repetitive steps. People stay in the loop wherever judgment is needed.",steps:1,c:[["Capture","Upload or receive supplier invoices into a central queue."],["Extract","Identify invoice data and prepare it for validation by your team."],["Approve","Route invoices through configurable approval workflows based on your rules."],["Review and Export","Resolve exceptions and prepare approved invoice data for downstream accounting or payment processes."],["Exceptions","Missing fields or purchase order differences are flagged for a person to review and resolve."],["Visibility","Dashboards show what is pending, approved or flagged at each stage."]],n:"<b>Illustrative flow:</b> INV-1190 from Brightline Office is flagged for a purchase order mismatch, reviewed by AP, corrected, then routed for approval. Demo data only. Planned versus implemented features must be confirmed before launch."},
+security:{t:"Security and Governance | Finvoizer",d:"Learn about Finvoizer governance controls: role-based access, approval permissions, audit trails, configurable workflows and document handling.",e:"Security",h:"Automation with finance-grade control.",i:"Finance teams need to know who did what, and who is allowed to. These are the governance areas Finvoizer is designed around.",c:[["Role-based access control","Limit who can view, edit and act on invoices."],["Approval permissions","Define who can approve which invoices."],["Audit trails","Keep a record of activity on each invoice."],["Secure document handling","Handle supplier documents with appropriate safeguards."],["Configurable workflows","Adapt approval paths to your policies."],["Data retention and access policies","Align records handling with your requirements."]],n:"<b>To be completed by Finvoizer before launch:</b> list only verified controls, hosting and encryption details, and any certifications actually held. None are claimed on this site."},
+about:{t:"About Finvoizer | Modernizing Accounts Payable",d:"Finvoizer is building a smarter way for businesses to manage accounts payable through intelligent automation.",e:"About",h:"Modernizing accounts payable through intelligent automation.",i:"Finvoizer is building a smarter way for businesses to manage accounts payable. Our mission is to help finance teams move beyond repetitive manual processes and operate with greater clarity, consistency, and control.",c:[["Clarity","Clear visibility into invoices and approvals."],["Consistency","Repeatable, configurable processes."],["Control","People stay in charge of decisions that matter."]]},
+nf:{t:"Page not found | Finvoizer",d:"The page you requested could not be found.",e:"404",h:"We could not find that page.",i:"The link may be out of date. Return to the homepage or book a demo.",c:[]}};
+var HT=document.title,HD=document.querySelector("meta[name=description]").content;
+function render(d){return "<section class=\"pg\"><div class=\"w\"><p class=\"eyebrow\">"+d.e+"</p><h1>"+d.h+"</h1><p style=\"font-size:1.1rem;max-width:720px\">"+d.i+"</p>"+(d.c.length?"<div class=\"grid g3"+(d.steps?" steps":"")+"\" style=\"margin-top:32px\">"+d.c.map(function(x){return "<div class=\"card"+(d.steps?" step":"")+"\"><h3>"+x[0]+"</h3><p>"+x[1]+"</p></div>"}).join("")+"</div>":"")+(d.n?"<div class=\"note\">"+d.n+"</div>":"")+"<p style=\"margin-top:32px\"><a class=\"btn p\" href=\"#contact\">Book a Demo</a> <a class=\"btn\" href=\"#top\">Back to home</a></p><p>Related: <a href=\"#p-platform\">Platform</a> · <a href=\"#p-solutions\">Solutions</a> · <a href=\"#p-how\">How It Works</a> · <a href=\"#p-security\">Security</a></p></div></section>"}
+function route(){var h=location.hash.slice(1),mn=document.getElementById("top"),pg=document.getElementById("pg"),mt=document.querySelector("meta[name=description]");
+if(h.indexOf("p-")===0){var d=P[h.slice(2)]||P.nf;pg.innerHTML=render(d);document.title=d.t;mt.content=d.d;mn.hidden=true;pg.hidden=false;window.scrollTo(0,0)}
+else{mn.hidden=false;pg.hidden=true;document.title=HT;mt.content=HD;var el=h&&document.getElementById(h);if(el)el.scrollIntoView()}}
+window.addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
